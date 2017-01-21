@@ -1,6 +1,25 @@
   <!-- The SECRET NUMBER is <%= number %> -->
   <html>
-  <head></head>
+  <head>
+    <style>
+      body {
+        background:
+        <% if number %>
+          <% if (number - guess).abs > 5 %>
+          <%# if message == "Way too high!" ||  message == "Way too low!" %>
+            <%= 'red' %>
+          <%# elsif message == "Too low" || message == "Too high" %>
+          <% elsif (number - guess).abs <= 5 && number != guess %>
+            <%= 'pink' %>
+          <% elsif number == guess %>
+            <%= 'green' %>
+          <% end %>
+        <% else %>
+          'white'
+        <% end %>;
+      }
+    </style>
+  </head>
   <body>
     <form>
       <input type='text' name='guess' />
